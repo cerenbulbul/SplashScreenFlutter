@@ -8,6 +8,13 @@ void main() {
   runApp(MyApp());
 }
 
+/*
+There is 3 Splash Screen classes:
+    1. Splash()
+    2. AnimatedSplashScreen()
+    3. ColorLoader()
+ */
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,10 +41,13 @@ class SecondScreen extends StatelessWidget {
   }
 }
 
-enum DotType {
-  square, circle, diamond, icon
-}
 
+
+
+
+
+
+//Animation Loader Spash Screen
 class ColorLoader extends StatefulWidget {
 
   final Color dotOneColor;
@@ -59,7 +69,9 @@ class ColorLoader extends StatefulWidget {
   @override
   _ColorLoader5State createState() => _ColorLoader5State();
 }
-
+enum DotType {
+  square, circle, diamond, icon
+}
 class _ColorLoader5State extends State<ColorLoader>
     with SingleTickerProviderStateMixin {
   Animation<double> animation_1;
@@ -130,49 +142,49 @@ class _ColorLoader5State extends State<ColorLoader>
 
 
             Opacity(
-            opacity: (animation_1.value <= 0.4 ? 2.5 * animation_1.value :
-            (animation_1.value > 0.40 && animation_1.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_1.value)),
+              opacity: (animation_1.value <= 0.4 ? 2.5 * animation_1.value :
+              (animation_1.value > 0.40 && animation_1.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_1.value)),
                 child: new Padding(
                 padding: const EdgeInsets.only(right: 8.0),
-                child: Dot(
-                radius: 10.0,
-                color: widget.dotOneColor,
-                type: widget.dotType,
-                icon: widget.dotIcon,
-                ),
+                  child: Dot(
+                  radius: 10.0,
+                  color: widget.dotOneColor,
+                  type: widget.dotType,
+                    icon: widget.dotIcon,
+                    ),
                 ),
                 ),
             Opacity(
-            opacity: (animation_2.value <= 0.4 ? 2.5 * animation_2.value :
-            (animation_2.value > 0.40 && animation_2.value <= 0.60)? 1.0 : 2.5 - (2.5 * animation_2.value)),
-            child: new Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Dot(
-            radius: 10.0,
-            color: widget.dotTwoColor,
-            type: widget.dotType,
-            icon: widget.dotIcon,
-            ),
-            ),
-            ),
-          Opacity(
-          opacity: (animation_3.value <= 0.4 ? 2.5 * animation_3.value :
-          (animation_3.value > 0.40 && animation_3.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_3.value)),
-          child: new Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Dot(
-          radius: 10.0,
-          color: widget.dotThreeColor,
-          type: widget.dotType,
-          icon: widget.dotIcon,
-          ),
-          ),
-          ),
-                ],
-            ),
+              opacity: (animation_2.value <= 0.4 ? 2.5 * animation_2.value :
+              (animation_2.value > 0.40 && animation_2.value <= 0.60)? 1.0 : 2.5 - (2.5 * animation_2.value)),
+                child: new Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                  child: Dot(
+                  radius: 10.0,
+                  color: widget.dotTwoColor,
+                  type: widget.dotType,
+                    icon: widget.dotIcon,
+                    ),
+                    ),
+                    ),
+              Opacity(
+                opacity: (animation_3.value <= 0.4 ? 2.5 * animation_3.value :
+                (animation_3.value > 0.40 && animation_3.value <= 0.60) ? 1.0 : 2.5 - (2.5 * animation_3.value)),
+                  child: new Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                    child: Dot(
+                    radius: 10.0,
+                    color: widget.dotThreeColor,
+                    type: widget.dotType,
+                      icon: widget.dotIcon,
+                      ),
+                      ),
+                      ),
+                            ],
+                        ),
 
-              ],
-      )
+                  ],
+          )
     );
   }
 
@@ -183,7 +195,6 @@ class _ColorLoader5State extends State<ColorLoader>
     super.dispose();
   }
 }
-
 class Dot extends StatelessWidget {
   final double radius;
   final Color color;
@@ -209,13 +220,11 @@ class Dot extends StatelessWidget {
   }
 }
 
-
-/* Splash Screen 2
+//Animation Splash Screen
 class AnimatedSplashScreen extends StatefulWidget {
   @override
   SplashScreenState createState() => new SplashScreenState();
 }
-
 class SplashScreenState extends State<AnimatedSplashScreen>
     with SingleTickerProviderStateMixin {
   var _visible = true;
@@ -280,14 +289,8 @@ class SplashScreenState extends State<AnimatedSplashScreen>
 }
 
 
-
- */
-
-
-
-
-//Splash Screen 1
-/*class Splash extends StatelessWidget {
+//Metarial Design Splash Screen
+class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
@@ -303,4 +306,3 @@ class SplashScreenState extends State<AnimatedSplashScreen>
     );
   }
 }
- */
