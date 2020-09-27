@@ -17,8 +17,11 @@
       * [ Implementation](#imp2)
       * [ Demo](#Demo2)
   3. [ Splash Screen 3](#s3)
-      * [ Implementation](#imp2)
-      * [ Demo](#Demo2)
+      * [ Implementation](#imp3)
+      * [ Demo](#Demo3)
+  4. [ Splash Screen 4](#s4)
+      * [ Implementation](#imp4)
+      * [ Demo](#Demo4)
   
 
 &nbsp;
@@ -192,6 +195,101 @@ class Dot extends StatelessWidget {
   <img src="https://user-images.githubusercontent.com/36292743/94368052-0e01e900-0097-11eb-935e-3caf2d2724d7.gif" alt="animated" />
 </p>
 
+&nbsp;
+&nbsp;
+&nbsp;
+
+<a name="s4"></a>
+## Splash Screen 4  Loading Animation & Logo
+
+There are a logo and a loading animation in the Splash Screen 4. I decided background color green bacuse Fible logo's colors are green and white. (logo's green and background green the same)
+
+<a name="imp4"></a>
+## How to Implement?
+
+```
+@override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color.fromRGBO(137, 168, 73, 1),
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset('images/logo_circle_big.png'),
+          AnimatedBuilder(
+              animation: controller,
+              builder: (context, child) {
+                return CustomPaint(
+                  size: measureSize(),
+                  painter: _BallGridPulseIndicatorPainter(
+                      animationValue: animationValue,
+                      minRadius: widget.minRadius,
+                      maxRadius: widget.maxRadius,
+                      minAlpha: widget.minAlpha,
+                      maxAlpha: widget.maxAlpha,
+                      spacing: widget.spacing,
+                      ballColor: widget.ballColor),
+                );
+              })
+        ],
+      )
+    );
+```
+
+```
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..isAntiAlias = true
+      ..style = PaintingStyle.fill
+      ..color = ballColor
+      ..strokeJoin = StrokeJoin.round
+      ..strokeCap = StrokeCap.round;
+
+    _progress += (_lastExtent - animationValue).abs();
+    _lastExtent = animationValue;
+    if (_progress >= double.maxFinite) {
+      _progress = .0;
+      _lastExtent = .0;
+    }
+
+    var diffRadius = maxRadius - minRadius;
+    var diffAlpha = maxAlpha - minAlpha;
+    for (int i = 0; i < radiusList.length; i++) {
+      canvas.save();
+      int row = i ~/ 3;
+      int column = i % 3;
+
+      var dx = maxRadius + 2 * column * maxRadius + column * spacing;
+      var dy = (2 * row + 1) * maxRadius + row * spacing;
+      var offset = Offset(dx, dy);
+
+      var offsetAlpha = asin((alphaList[i] - minAlpha) / diffAlpha);
+      var beatAlpha =
+          sin(_progress * pi / 180 + offsetAlpha).abs() * diffAlpha + minAlpha;
+      paint.color = Color.fromARGB(
+          beatAlpha.round(), ballColor.red, ballColor.green, ballColor.blue);
+
+      var offsetExtent = asin((radiusList[i] - minRadius) / diffRadius);
+      var scaleRadius =
+          sin(_progress * pi / 180 + offsetExtent).abs() * diffRadius +
+              minRadius;
+      canvas.drawCircle(offset, scaleRadius, paint);
+      canvas.restore();
+    }
+  }
+
+```
+
+<a name="Demo4"></a>
+## Demo 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36292743/94373431-567ece00-00ba-11eb-926b-adefa7d90e57.gif" alt="animated" />
+</p>
 
 &nbsp;
 &nbsp;
@@ -200,11 +298,11 @@ class Dot extends StatelessWidget {
 ### Animation Examples ###
 
 Animation Style can changeable in the Splash Screen.
-I utilized Animatin Class documentation when I studying -> [Animation Class - Flutter](https://api.flutter.dev/flutter/animation/Animation-class.html) </br>
+I utilized Animatin Class documentation when I studying -> [Animation Class - Flutter](https://api.flutter.dev/flutter/animation/Animation-class.html), [Loading Animation](https://github.com/Hitomis/loading_indicator_view) </br>
 Animation Examples: 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/36292743/94372377-c177d700-00b1-11eb-92c7-f9b782717aca.gif" alt="animated" />
+  <img src="https://user-images.githubusercontent.com/36292743/94372377-c177d700-00b1-11eb-92c7-f9b782717aca.gif" alt="animated" />  <img src="https://user-images.githubusercontent.com/36292743/94373491-bb3a2880-00ba-11eb-9584-5523ce1be9ec.gif" alt="animated" />    <img src="https://user-images.githubusercontent.com/36292743/94373548-e1f85f00-00ba-11eb-8d1b-846af2a328e8.gif" alt="animated" /> <img src="https://user-images.githubusercontent.com/36292743/94373680-d48fa480-00bb-11eb-966b-9abf2e23e065.gif" alt="animated" /> 
 </p>
 
 
