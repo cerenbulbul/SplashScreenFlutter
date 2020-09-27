@@ -4,16 +4,22 @@ import 'package:flutter/widgets.dart';
 import 'dart:math';
 import "package:splashscreen/splashscreen.dart";
 
+import 'dart:async';
+import 'dart:core';
+import 'package:flutter/material.dart';
+
+/*
+There is 3 Splash Screen classes:
+    1. Splash1()
+    2. Splash2()
+    3. Splash3()
+ */
+
+
 void main() {
   runApp(MyApp());
 }
 
-/*
-There is 3 Splash Screen classes:
-    1. Splash()
-    2. AnimatedSplashScreen()
-    3. ColorLoader()
- */
 
 class MyApp extends StatelessWidget {
   @override
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ColorLoader(),
+      home: Splash3(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -48,7 +54,7 @@ class SecondScreen extends StatelessWidget {
 
 
 //Animation Loader Spash Screen
-class ColorLoader extends StatefulWidget {
+class Splash3 extends StatefulWidget {
 
   final Color dotOneColor;
   final Color dotTwoColor;
@@ -57,7 +63,7 @@ class ColorLoader extends StatefulWidget {
   final DotType dotType;
   final Icon dotIcon;
 
-  ColorLoader({
+  Splash3({
     this.dotOneColor = Colors.white,
     this.dotTwoColor = Colors.white,
     this.dotThreeColor = Colors.white,
@@ -72,7 +78,7 @@ class ColorLoader extends StatefulWidget {
 enum DotType {
   square, circle, diamond, icon
 }
-class _ColorLoader5State extends State<ColorLoader>
+class _ColorLoader5State extends State<Splash3>
     with SingleTickerProviderStateMixin {
   Animation<double> animation_1;
   Animation<double> animation_2;
@@ -221,11 +227,11 @@ class Dot extends StatelessWidget {
 }
 
 //Animation Splash Screen
-class AnimatedSplashScreen extends StatefulWidget {
+class Splash2 extends StatefulWidget {
   @override
   SplashScreenState createState() => new SplashScreenState();
 }
-class SplashScreenState extends State<AnimatedSplashScreen>
+class SplashScreenState extends State<Splash2>
     with SingleTickerProviderStateMixin {
   var _visible = true;
 
@@ -236,8 +242,6 @@ class SplashScreenState extends State<AnimatedSplashScreen>
     var _duration = new Duration(seconds: 6);
     return SecondScreen();
   }
-
-
   @override
   void initState() {
     super.initState();
@@ -290,7 +294,7 @@ class SplashScreenState extends State<AnimatedSplashScreen>
 
 
 //Metarial Design Splash Screen
-class Splash extends StatelessWidget {
+class Splash1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
