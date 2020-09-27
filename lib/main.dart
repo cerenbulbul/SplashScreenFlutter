@@ -49,9 +49,6 @@ class SecondScreen extends StatelessWidget {
 }
 
 
-
-
-
 class Splash4 extends StatefulWidget {
   Splash4({
     this.minRadius: 3.6,
