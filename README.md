@@ -114,7 +114,7 @@ There is a logo Splash Screen 2. The logo has an animation. I decided background
 ### Demo 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/36292743/94367973-9fbd2680-0096-11eb-87a2-f77d9dac13b2.gif" alt="animated" />
+  <img src="https://user-images.githubusercontent.com/36292743/94370092-a782c800-00a2-11eb-91b7-1ab13bdd2154.gif" alt="animated" />
 </p>
 
 
@@ -197,4 +197,18 @@ class Dot extends StatelessWidget {
 &nbsp;
 &nbsp;
 
+### Animation Examples ###
+
+Animation Style can changeable in the Splash Screen.
+I utilized Animatin Class documentation when I studying -> [Animation Class - Flutter](https://api.flutter.dev/flutter/animation/Animation-class.html) </br>
+Animation Examples: 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/36292743/94372377-c177d700-00b1-11eb-92c7-f9b782717aca.gif" alt="animated" />
+</p>
+
+
+&nbsp;
+&nbsp;
+&nbsp;
 :exclamation: **HINT:** Background color, text size, and color and layout style can changeable.
