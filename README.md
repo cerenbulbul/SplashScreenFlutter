@@ -5,6 +5,7 @@
 - Write Splash1() in the child(home) of myApp class and run
 - Write Splash2() in the child(home) of myApp class and run 
 - Write Splash3() in the child(home) of myApp class and run
+- Write Splash4() in the child(home) of myApp class and run
 
 &nbsp;
 &nbsp;
