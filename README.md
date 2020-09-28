@@ -297,8 +297,8 @@ There are a logo and a loading animation in the Splash Screen 4. I decided backg
 
 ### Animation Examples ###
 
-Animation Style can changeable in the Splash Screen.
-I utilized Animatin Class documentation when I studying -> [Animation Class - Flutter](https://api.flutter.dev/flutter/animation/Animation-class.html), [Loading Animation](https://github.com/Hitomis/loading_indicator_view) </br>
+Animation Style (Logo and Loading) can changeable in the Splash Screen.
+I utilized a documentation when I studying -> [Animation Class](https://api.flutter.dev/flutter/animation/Animation-class.html) </br>
 Animation Examples: 
 
 <p align="center">
@@ -309,4 +309,3 @@ Animation Examples:
 &nbsp;
 &nbsp;
 &nbsp;
-:exclamation: **HINT:** Background color, text size, and color and layout style can changeable.
