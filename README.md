@@ -118,7 +118,7 @@ There is a logo Splash Screen 2. The logo has an animation. I decided background
 ### Demo 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/36292743/94370092-a782c800-00a2-11eb-91b7-1ab13bdd2154.gif" alt="animated" />
+  <img src="https://user-images.githubusercontent.com/36292743/94400410-f0c42d80-011d-11eb-8034-d3e227e03e65.gif" alt="animated" />
 </p>
 
 
