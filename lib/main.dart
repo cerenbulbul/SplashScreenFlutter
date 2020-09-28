@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Splash4(),
+      home: Splash1(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -452,7 +452,7 @@ class SplashScreenState extends State<Splash2>
             ],
           ),
           new Align(alignment: Alignment.bottomCenter,
-            child: new Text("Camper Campus",
+            child: new Text("Camper Boys",
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),)
